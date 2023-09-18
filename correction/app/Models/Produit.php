@@ -12,4 +12,7 @@ class Produit extends Model
     public function succursales():BelongsToMany{
         return $this->belongsToMany(Succursale::class,'succursale_produits')->withPivot('quantite','prix','prix_gros');
     }
+    public function caracteristiques():BelongsToMany{
+        return $this->belongsToMany(Caracteristique::class,'produit_caracteristiques')->withPivot('valeur','description');
+    }
 }
